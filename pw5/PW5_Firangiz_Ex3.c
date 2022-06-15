@@ -11,6 +11,7 @@ typedef struct CircularList{
 CLS* CLS_add(CLS* list, int value);
 void CLS_reverse(CLS** list);
 void CLS_show(CLS* list);
+void freeCLS(CLS* list);
 
 int main(){
 	CLS *list = NULL;
@@ -24,6 +25,7 @@ int main(){
   CLS_reverse(&list);
   printf("The circular linked list after reversing:\n");
   CLS_show(list);
+  freeCLS(list);
   
 	return 0;
 }
@@ -82,5 +84,14 @@ void CLS_show(CLS* list){
   printf("\n");
 }
 
-
+void freeCLS(CLS* list){
+  if(list){
+    CLS* current = list;
+    do{
+      CLS* next = current->next;
+      free(current);
+      current = next;
+    } while(current != list);
+  }
+}
 
