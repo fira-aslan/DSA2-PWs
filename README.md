@@ -1,2 +1,2 @@
 # DSA2-PWs
-practical work solution for DSA2 course
+practical work solutions for DSA2 course
